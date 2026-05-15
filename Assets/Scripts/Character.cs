@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 6f;
     public float jumpForce = 200f;
     new Rigidbody rigidbody;
     Animator animator;
