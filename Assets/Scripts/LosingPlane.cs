@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LosingPlane : MonoBehaviour
 {
+    public GameObject loseImage;
     // Start is called before the first frame update
     void Start()
     {
-        
+        loseImage.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,9 +20,10 @@ public class LosingPlane : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("SampleScene");
+            loseImage.SetActive(true);
+            // SceneManager.LoadScene("SampleScene");
             // print("Player fell down");
         }
     }

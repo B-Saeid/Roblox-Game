@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     public float jumpForce = 200f;
     new Rigidbody rigidbody;
     Animator animator;
+    AudioSource audioSource;
 
     bool isTouchingGround = false;
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class Character : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class Character : MonoBehaviour
         if (isTouchingGround)
         {
             animator.SetBool("isJumping", true);
+            audioSource.Play(); // Only Plays the jump_sfx for now
             rigidbody.AddForce(0, jumpForce, 0);
         }
     }
