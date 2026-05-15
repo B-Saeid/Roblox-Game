@@ -6,6 +6,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public float speed = 6f;
+    public float rotationSpeed = 100f;
     public float jumpForce = 200f;
     new Rigidbody rigidbody;
     Animator animator;
@@ -57,6 +58,7 @@ public class Character : MonoBehaviour
         }
 
         transform.Translate(xValue * speed * Time.deltaTime, 0, zValue * speed * Time.deltaTime);
+        transform.Rotate(0, xValue * rotationSpeed * Time.deltaTime, 0);
     }
 
     void OnCollisionEnter(Collision collision)
